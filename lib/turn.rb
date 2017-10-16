@@ -29,3 +29,7 @@ end
 def move(array, user_input, character = "X")
   array[user_input] = character
 end
+
+def turn(board)
+  puts "Please enter 1-9"
+end
