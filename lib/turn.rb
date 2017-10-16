@@ -38,4 +38,6 @@ def turn(board)
   end
   if valid_move?(array, index_number)
     move(array, user_input, character)
+    display_board(board)
+  end
 end
