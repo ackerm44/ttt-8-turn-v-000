@@ -14,16 +14,16 @@ def move(board, index, character = "X")
   board[index] = character
 end
 
-def valid_move?(board, index)
-  if position_taken?(board, index) == false && index.between?(0, 8)
+def position_taken?(board, index)
+  if board[index] == "X" || board[index] == "O"
     return true
   else
     return false
   end
 end
 
-def position_taken?(board, index)
-  if board[index] == "X" || board[index] == "O"
+def valid_move?(board, index)
+  if position_taken?(board, index) == false && index.between?(0, 8)
     return true
   else
     return false
@@ -34,11 +34,11 @@ def turn(board)
   puts "Please enter 1-9:"
   user_input = gets.strip
   input_to_index(user_input)
-  while !valid_move?(board, index_number)
+  while !valid_move?(board, index)
     turn(board)
   end
-  if valid_move?(array, index_number)
-    move(array, user_input, character)
+  if valid_move?(board, index)
+    move(board, index, character)
     display_board(board)
   end
 end
